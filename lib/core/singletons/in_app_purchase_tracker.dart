@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/foundation.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 // import 'package:in_app_purchase_storekit/in_app_purchase_storekit.dart';
 // import 'package:in_app_purchase_storekit/store_kit_wrappers.dart';
@@ -26,7 +27,10 @@ class InAppPurchaseTracker {
         _listenToPurchaseUpdated(purchaseDetailsList);
       },
       onDone: () => _subscription?.cancel(),
-      onError: (error) => print('Purchase error: $error'),
+      onError: (error){
+        if (kDebugMode) {
+          print('Purchase error: $error');
+        }},
     );
     await _initialize();
   }

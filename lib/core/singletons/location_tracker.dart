@@ -49,7 +49,9 @@ class LocationTracker {
       ),
     ).listen(
       (Position position) async {
-        print(">>>_ $position");
+        if (kDebugMode) {
+          print(">>>_ $position");
+        }
         _dbRef.child('drivers/$driverId/location').set({
           'latitude': position.latitude,
           'longitude': position.longitude,
@@ -61,7 +63,9 @@ class LocationTracker {
         });
       },
       onError: (error) {
-        print('Location error: $error');
+        if (kDebugMode) {
+          print('Location error: $error');
+        }
       },
     );
 
