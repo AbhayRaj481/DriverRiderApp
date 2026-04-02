@@ -1,4 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
+part of "../repo_lib.dart";
 
 abstract class AuthRepository {
   Future<User?> signInWithEmailAndPassword({

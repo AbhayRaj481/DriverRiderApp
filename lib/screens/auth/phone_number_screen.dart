@@ -95,7 +95,6 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
                         ? null
                         : () {
                             final phoneNumber = _controller.text;
-                            print(">>>_ phoneNumberState -> ${phoneNumberState.phoneNumber}");
                             if (phoneNumber.isNotEmpty) {
                               context.read<AuthBloc>().add(
                                 PhoneNumberSubmitted(phoneNumber: "${phoneNumberState.phoneNumber}"),

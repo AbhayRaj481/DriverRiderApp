@@ -1,4 +1,4 @@
-import 'package:driving_mobile_app/repositories/auth/auth_repository.dart';
+import 'package:driving_mobile_app/repositories/repo_lib.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'auth_event.dart';
 import 'auth_state.dart';
