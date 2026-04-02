@@ -1,8 +1,1 @@
-# SocketStreamBuilder Implementation Plan
-
-## Steps:
-
-- [x] 1. Add `web_socket_channel` dependency to pubspec.yaml
-- [x] 2. Implement SocketStreamBuilder widget in lib/core/widgets/builders/socket_stream_builder.dart
-- [x] 3. Run `flutter pub get`
-- [ ] 4. Test the builder (user to integrate and test)
+# Fix BLoC Emit Error in Phone Number Verification\n\n## Plan Breakdown\n1. ✅ Create TODO.md with steps\n2. ✅ Update lib/blocs/auth/auth_bloc.dart: Added `if (emit.isDone) return;` guards in callbacks and catch; removed finally emit block.\n3. Test the fix: Run app, enter phone number, verify no crash and proper state transitions.\n4. Update TODO.md with completion.\n5. attempt_completion\n\n**Next step: Test**

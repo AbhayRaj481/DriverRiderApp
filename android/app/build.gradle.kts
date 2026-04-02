@@ -38,10 +38,24 @@ android {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig = signingConfigs.getByName("debug")
+            isMinifyEnabled = true
+            // In Kotlin DSL, use the setOf() or add() syntax for proguard files
+            setProguardFiles(
+                listOf(
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
+                )
+            )
+
         }
     }
 }
 
 flutter {
     source = "../.."
+}
+
+dependencies {
+    // Corrected syntax for Kotlin DSL
+    implementation("com.google.android.gms:play-services-auth:21.0.0") // Or latest version
 }

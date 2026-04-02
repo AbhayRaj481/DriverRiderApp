@@ -75,4 +75,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'test-app-f1170.firebasestorage.app',
     iosBundleId: 'com.app.driving.drivingMobileApp',
   );
+
 }

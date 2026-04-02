@@ -19,6 +19,14 @@ class AppRouter {
         path: RoutesName.signup,
         builder: (context, state) => const SignupScreen(),
       ),
+      GoRoute(
+        path: RoutesName.phoneNumber,
+        builder: (context, state) => const PhoneNumberScreen(),
+      ),
+      GoRoute(
+        path: RoutesName.otp,
+        builder: (context, state) => OTPVerificationScreen(verificationId: '${state.extra}',),
+      ),
     ],
   );
 }

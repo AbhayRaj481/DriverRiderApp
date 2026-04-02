@@ -33,3 +33,22 @@ class AppSignOutRequested extends AuthEvent {
   @override
   List<Object?> get props => [];
 }
+
+class PhoneNumberSubmitted extends AuthEvent {
+  final String phoneNumber;
+
+  const PhoneNumberSubmitted({required this.phoneNumber});
+
+  @override
+  List<Object?> get props => [phoneNumber];
+}
+
+class OTPSubmitted extends AuthEvent {
+  final String verificationId;
+  final String otpCode;
+
+  const OTPSubmitted({required this.verificationId, required this.otpCode});
+
+  @override
+  List<Object?> get props => [verificationId, otpCode];
+}

@@ -70,7 +70,7 @@ class LoginScreen extends StatelessWidget {
                             const SizedBox(height: 24),
                             TextButton(
                               onPressed: () =>
-                                  context.go(RoutesName.home),
+                                  context.go(RoutesName.signup),
                               child: const Text('No account? Sign Up'),
                             ),
                           ],

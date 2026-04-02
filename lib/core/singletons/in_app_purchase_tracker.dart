@@ -88,13 +88,16 @@ class InAppPurchaseTracker {
   List<PurchaseDetails> get purchases => _purchases;
   bool get isAvailable => _isAvailable;
 
-  void _listenToPurchaseUpdated(List<PurchaseDetails> purchaseDetailsList) {
-    purchaseDetailsList.forEach((PurchaseDetails purchaseDetails) async {
+  void _listenToPurchaseUpdated(List<PurchaseDetails> purchaseDetailsList) async {
+
+    for(var purchaseDetails in purchaseDetailsList){
       if (purchaseDetails.status == PurchaseStatus.pending) {
         // Pending UI
-      } else if (purchaseDetails.status == PurchaseStatus.error) {
+      }
+      else if (purchaseDetails.status == PurchaseStatus.error) {
         // Handle error
-      } else if (purchaseDetails.status == PurchaseStatus.purchased ||
+      }
+      else if (purchaseDetails.status == PurchaseStatus.purchased ||
           purchaseDetails.status == PurchaseStatus.restored) {
         bool valid = await _verifyPurchase(purchaseDetails);
         if (valid) {
@@ -106,17 +109,20 @@ class InAppPurchaseTracker {
                 .child('users/$uid/subscriptions')
                 .child(purchaseDetails.purchaseID!)
                 .set({
-                  'productId': purchaseDetails.productID,
-                  'purchaseId': purchaseDetails.purchaseID,
-                  'status': purchaseDetails.status,
-                  'verificationData':
-                      purchaseDetails.verificationData.serverVerificationData,
-                });
+              'productId': purchaseDetails.productID,
+              'purchaseId': purchaseDetails.purchaseID,
+              'status': purchaseDetails.status,
+              'verificationData':
+              purchaseDetails.verificationData.serverVerificationData,
+            });
           }
         }
         await _iap.completePurchase(purchaseDetails);
       }
-    });
+    }
+    /*purchaseDetailsList.forEach((PurchaseDetails purchaseDetails) async {
+
+    });*/
   }
 
   Future<bool> _verifyPurchase(PurchaseDetails purchaseDetails) async {

@@ -37,3 +37,21 @@ class AuthError extends AuthState {
   @override
   List<Object?> get props => [message];
 }
+
+class PhoneVerificationSent extends AuthState {
+  final String verificationId;
+
+  const PhoneVerificationSent({required this.verificationId});
+
+  @override
+  List<Object?> get props => [verificationId];
+}
+
+class PhoneAuthError extends AuthState {
+  final String message;
+
+  const PhoneAuthError(this.message);
+
+  @override
+  List<Object?> get props => [message];
+}
