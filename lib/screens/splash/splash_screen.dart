@@ -11,7 +11,8 @@ class SplashScreen extends StatelessWidget {
         if (state is AuthAuthenticated) {
           context.go(RoutesName.homeScreen);
         } else if (state is AuthUnauthenticated || state is AuthError) {
-          context.replace(RoutesName.phoneNumberScreen);
+          context.replace(RoutesName.riderMapScreen);
+          // context.replace(RoutesName.phoneNumberScreen);
         }
       },
       child: const Scaffold(
