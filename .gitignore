@@ -45,4 +45,3 @@ app.*.map.json
 /android/app/release
 README.md
 assets/.env
-android/app/src/main/kotlin/com/development/abr
