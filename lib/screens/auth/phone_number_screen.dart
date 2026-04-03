@@ -42,7 +42,7 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
         listener: (context, state) {
           if (state is PhoneVerificationSent) {
 
-            context.push(RoutesName.otp,extra: state.verificationId);
+            context.push(RoutesName.otpScreen,extra: state.verificationId);
           } else if (state is AuthAuthenticated) {
             Navigator.popUntil(context, (route) => route.isFirst);
             ScaffoldMessenger.of(context).showSnackBar(

@@ -43,3 +43,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+README.md
+assets/.env
+android/app/src/main/kotlin/com/development/abr

@@ -8,24 +8,28 @@ class AppRouter {
         builder: (context, state) => const SplashScreen(),
       ),
       GoRoute(
-        path: RoutesName.login,
+        path: RoutesName.loginScreen,
         builder: (context, state) => const LoginScreen(),
       ),
       GoRoute(
-        path: RoutesName.home,
+        path: RoutesName.homeScreen,
         builder: (context, state) => const HomeScreen(),
       ),
       GoRoute(
-        path: RoutesName.signup,
+        path: RoutesName.signupScreen,
         builder: (context, state) => const SignupScreen(),
       ),
       GoRoute(
-        path: RoutesName.phoneNumber,
+        path: RoutesName.phoneNumberScreen,
         builder: (context, state) => const PhoneNumberScreen(),
       ),
       GoRoute(
-        path: RoutesName.otp,
+        path: RoutesName.otpScreen,
         builder: (context, state) => OTPVerificationScreen(verificationId: '${state.extra}',),
+      ),
+      GoRoute(
+        path: RoutesName.riderMapScreen,
+        builder: (context, state) => const RiderMapScreen(),
       ),
     ],
   );

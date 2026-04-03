@@ -1,1 +1,16 @@
-# Fix BLoC Emit Error in Phone Number Verification\n\n## Plan Breakdown\n1. ✅ Create TODO.md with steps\n2. ✅ Update lib/blocs/auth/auth_bloc.dart: Added `if (emit.isDone) return;` guards in callbacks and catch; removed finally emit block.\n3. Test the fix: Run app, enter phone number, verify no crash and proper state transitions.\n4. Update TODO.md with completion.\n5. attempt_completion\n\n**Next step: Test**
+# Rider Map Screen Task Progress
+
+## Completed
+- [x] Created `lib/screens/rider/rider_map_screen.dart` with full functionality:
+  - Google Map with current location tracking via LocationTracker.
+  - Search TextFields for pickup/destination (mock + map tap + reverse geocode for addresses).
+  - Constant draggable bottom sheet showing full addresses.
+  - Polyline route generation/markers on destination selection.
+
+## Pending
+- [ ] Add GoRouter route for RiderMapScreen (e.g., in `lib/core/route/router.dart` or caller screen).
+- [ ] Test in app: Check permissions, map load, search/tap, bottom sheet, route display.
+- [ ] Optional: Add flutter_google_places dep for real autocomplete (pubspec + flutter pub get).
+- [ ] Optional: Integrate Directions API for real polylines (HTTP + API key).
+
+Run `flutter run` to test. Navigate to RiderMapScreen (temporary: add to existing rider screen or route).

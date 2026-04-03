@@ -13,7 +13,7 @@ class OTPVerificationScreen extends StatelessWidget {
         listener: (context, state) {
           if (state is AuthAuthenticated) {
             // Navigator.popUntil(context, (route) => route.isFirst);
-            context.push(RoutesName.home);
+            context.push(RoutesName.homeScreen);
             ScaffoldMessenger.of(
               context,
             ).showSnackBar(const SnackBar(content: Text('Login successful!')));

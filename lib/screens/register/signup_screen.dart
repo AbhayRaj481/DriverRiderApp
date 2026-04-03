@@ -31,7 +31,7 @@ class _SignupScreenState extends State<SignupScreen> {
           if (_userType == 'Driver') {
             context.goNamed('driver_home'); // Add route
           } else {
-            context.goNamed(RoutesName.home);
+            context.goNamed(RoutesName.homeScreen);
           }
         } else if (state is AuthError) {
           ScaffoldMessenger.of(
@@ -134,7 +134,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                   const SizedBox(height: 16),
                   TextButton(
-                    onPressed: () => context.goNamed(RoutesName.login),
+                    onPressed: () => context.goNamed(RoutesName.loginScreen),
                     child: const Text('Already have account? Login'),
                   ),
                 ],

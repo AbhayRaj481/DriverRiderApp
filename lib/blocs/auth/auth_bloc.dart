@@ -76,6 +76,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     PhoneNumberSubmitted event,
     Emitter<AuthState> emit,
   ) async {
+
+    print(">>>_ _onPhoneNumberSubmitted -> ");
     _verificationId = null;
     _phoneAuthError = null;
     emit(const AuthLoading());

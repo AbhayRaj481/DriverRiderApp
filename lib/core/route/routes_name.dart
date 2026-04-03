@@ -3,9 +3,10 @@ part of '../core_lib.dart';
 class RoutesName {
   RoutesName._();
   static const String initial = "/";
-  static const String login = "/login";
-  static const String home = "/home";
-  static const String signup = "/signup";
-  static const String phoneNumber = "/phoneNumber";
-  static const String otp = "/otp";
+  static const String loginScreen = "/login";
+  static const String homeScreen = "/home";
+  static const String signupScreen = "/signup";
+  static const String phoneNumberScreen = "/phoneNumber";
+  static const String otpScreen = "/otp";
+  static const String riderMapScreen = "/riderMap";
 }

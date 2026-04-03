@@ -8,7 +8,7 @@ class LoginScreen extends StatelessWidget {
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state is AuthAuthenticated) {
-          context.goNamed(RoutesName.home);
+          context.goNamed(RoutesName.homeScreen);
         } else if (state is AuthError) {
           ScaffoldMessenger.of(
             context,
@@ -70,7 +70,7 @@ class LoginScreen extends StatelessWidget {
                             const SizedBox(height: 24),
                             TextButton(
                               onPressed: () =>
-                                  context.go(RoutesName.signup),
+                                  context.go(RoutesName.signupScreen),
                               child: const Text('No account? Sign Up'),
                             ),
                           ],

@@ -9,9 +9,9 @@ class SplashScreen extends StatelessWidget {
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state is AuthAuthenticated) {
-          context.go(RoutesName.home);
+          context.go(RoutesName.homeScreen);
         } else if (state is AuthUnauthenticated || state is AuthError) {
-          context.replace(RoutesName.phoneNumber);
+          context.replace(RoutesName.phoneNumberScreen);
         }
       },
       child: const Scaffold(
