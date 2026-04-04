@@ -10,7 +10,7 @@ class RiderMapBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
       initialChildSize: 0.4,
-      minChildSize: 0.1,
+      minChildSize: 0.2,
       maxChildSize: 0.6,
       builder: (context, scrollController) => Container(
         decoration: const BoxDecoration(
