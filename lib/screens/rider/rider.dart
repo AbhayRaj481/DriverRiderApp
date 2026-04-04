@@ -1,0 +1,11 @@
+library;
+import 'dart:async';
+import 'package:driving_mobile_app/core/core_lib.dart';
+import 'package:driving_mobile_app/core/data/data.dart';
+import 'package:driving_mobile_app/core/utils/utils.dart';
+import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+part 'ui/rider_map_screen.dart';
+part 'widgets/rider_map_header.dart';
+part 'widgets/rider_map_bottom_sheet.dart';
