@@ -44,15 +44,37 @@ class _RiderMapScreenState extends State<RiderMapScreen> {
             children: [
               // Search Bar
               RiderMapHeader(
-                onPickupChanged: (value) => setState(() {
-                  _pickup = value.trim().isNotEmpty ? value : "N/A";
-                }),
-                onDestinationChanged: (value) => setState(() {
-                  _destination = value.trim().isNotEmpty ? value : "N/A";
-                }),
+                onPickupChanged: (value) async {
+                  var latLng = await CommonUtilsManager.getLatLngFromAddress(value);
+                  if(latLng != null) {
+                    var marker = Marker(
+                        markerId: const MarkerId("Pickup"),
+                        position: latLng,
+                        icon: BitmapDescriptor.defaultMarkerWithHue(.3)
+                    );
+                    _googleMapDataState.addMarker(marker);
+                    _googleMapDataState.setPickupCoordinate = latLng;
+                    _pickup = value.trim().isNotEmpty ? value : "N/A";
+                    setState(() {});
+                  }
+                },
+                onDestinationChanged: (value) async {
+                  var latLng = await CommonUtilsManager.getLatLngFromAddress(value);
+                  if(latLng != null) {
+                    var marker = Marker(
+                        markerId: const MarkerId("Destination"),
+                        position: latLng,
+                        icon: BitmapDescriptor.defaultMarkerWithHue(.3)
+                    );
+                    _googleMapDataState.addMarker(marker);
+                    _googleMapDataState.setDestinationCoordinate = latLng;
+                    _destination = value.trim().isNotEmpty ? value : "N/A";
+                    setState(() {});
+                  }
+                },
               ),
              // Google Map
-             /* Expanded(child:  GoogleMap(
+              Expanded(child:  GoogleMap(
                 initialCameraPosition: const CameraPosition(
                   target: LatLng(37.7749, -122.4194),
                   zoom: 12,
@@ -65,9 +87,7 @@ class _RiderMapScreenState extends State<RiderMapScreen> {
                 myLocationEnabled: true,
                 myLocationButtonEnabled: true,
                 onTap: (latLng){},
-              ),)*/
-              
-             // Expanded(child: Column(mainAxisSize: MainAxisSize.min,))
+              ),)
             ],
           )),
 
@@ -81,6 +101,12 @@ class _RiderMapScreenState extends State<RiderMapScreen> {
               child: RiderMapBottomSheet(
                 pickupAddress: _pickup ?? "N/A",
                 destinationAddress: _destination ?? "N/A",
+                onSearch: () async {
+                  if(validate()){
+                    await _googleMapDataState.drawPolyline();
+                    setState(() {});
+                  }
+                },
               ),
             ),
           ),
@@ -90,6 +116,19 @@ class _RiderMapScreenState extends State<RiderMapScreen> {
   }
 
 
+
+  bool validate() {
+    if((_pickup ?? "").trim().isEmpty){
+      CustomSnackbar.showError(context, "Please select location for pickup.");
+      return false;
+    }
+
+    if((_destination ?? "").trim().isEmpty){
+      CustomSnackbar.showError(context, "Please select location for destination.");
+      return false;
+    }
+    return true;
+  }
 
   @override
   void dispose() {

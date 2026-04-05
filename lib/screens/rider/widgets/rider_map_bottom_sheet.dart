@@ -4,7 +4,13 @@ part of '../rider.dart';
 class RiderMapBottomSheet extends StatelessWidget {
   final String? pickupAddress;
   final String? destinationAddress;
-  const RiderMapBottomSheet({super.key, this.pickupAddress, this.destinationAddress,});
+  final VoidCallback? onSearch;
+  const RiderMapBottomSheet({
+    super.key,
+    this.pickupAddress,
+    this.destinationAddress,
+    this.onSearch,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -49,13 +55,13 @@ class RiderMapBottomSheet extends StatelessWidget {
               destinationAddress ?? "",
             ),
 
-            SizedBox(height: 21,),
+            const SizedBox(height: 21,),
             Row(
               children: [
                 Expanded(child:
                 CustomMaterialButton(
                   text: 'Search',
-                  onPressed: (){},
+                  onPressed: onSearch,
                 )
                 )
               ],

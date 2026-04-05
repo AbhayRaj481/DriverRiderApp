@@ -31,6 +31,10 @@ class AppRouter {
         path: RoutesName.riderMapScreen,
         builder: (context, state) => const RiderMapScreen(),
       ),
+      GoRoute(
+        path: RoutesName.chooseLocationByMapScreen,
+        builder: (context, state) => const ChooseLocationByMapScreen(),
+      ),
     ],
   );
 }

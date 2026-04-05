@@ -1,16 +1,20 @@
-# Rider Map Screen Task Progress
+# Custom Snackbar Task Progress
 
-## Completed
-- [x] Created `lib/screens/rider/rider_map_screen.dart` with full functionality:
-  - Google Map with current location tracking via LocationTracker.
-  - Search TextFields for pickup/destination (mock + map tap + reverse geocode for addresses).
-  - Constant draggable bottom sheet showing full addresses.
-  - Polyline route generation/markers on destination selection.
+## Plan Steps
 
-## Pending
-- [ ] Add GoRouter route for RiderMapScreen (e.g., in `lib/core/route/router.dart` or caller screen).
-- [ ] Test in app: Check permissions, map load, search/tap, bottom sheet, route display.
-- [ ] Optional: Add flutter_google_places dep for real autocomplete (pubspec + flutter pub get).
-- [ ] Optional: Integrate Directions API for real polylines (HTTP + API key).
+- [x] 1. Create TODO.md with tracking steps.
+- [x] 2. Edit lib/core/utils/custom_snackbar.dart with singleton CustomSnackbar class.
+- [x] 3. Test the snackbar.
+- [x] 4. Mark complete.
 
-Run `flutter run` to test. Navigate to RiderMapScreen (temporary: add to existing rider screen or route).
+## Details
+
+CustomSnackbar singleton completed. Fixed compilation error. Methods:
+
+- CustomSnackbar.showSuccess(context, 'msg')
+- CustomSnackbar.showError(context, 'msg')
+- etc.
+
+Ready to use across app. Import 'package:driving_mobile_app/core/utils/custom_snackbar.dart' (adjust if barrel export).
+
+Task complete!

@@ -9,4 +9,5 @@ class RoutesName {
   static const String phoneNumberScreen = "/phoneNumber";
   static const String otpScreen = "/otp";
   static const String riderMapScreen = "/riderMap";
+  static const String chooseLocationByMapScreen = "/chooseLocationByMap";
 }
