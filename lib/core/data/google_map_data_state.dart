@@ -50,7 +50,6 @@ class GoogleMapDataState {
 
 
   Future drawRoute() async {
-    print(">>>_ drawPolyline ->");
     if((_pickupCoordinate == null) || (_destinationCoordinate == null)) return;
     var result = await GoogleMapUtils.getPolylineRoute(_pickupCoordinate!, _destinationCoordinate!);
     List<LatLng> polylineCoordinates = [];

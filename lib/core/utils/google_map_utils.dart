@@ -43,7 +43,6 @@ class GoogleMapUtils {
   }
 
   static Future<List<PointLatLng>> getPolylineRoute(LatLng origin, LatLng destination) async {
-    print(">>>_ getPolylineRoute ->");
     // 1. Initialize with your API Key in the constructor for v3.0+
     PolylinePoints polylinePoints = PolylinePoints(apiKey: AppConfig.mapKey!);
     try{
