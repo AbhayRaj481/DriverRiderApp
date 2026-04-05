@@ -78,7 +78,7 @@ class _ChooseLocationByMapScreenState extends State<ChooseLocationByMapScreen> {
 
   Future<void> _updateAddress(LatLng position) async {
     try {
-      var address = await CommonUtilsManager.getAddressFromLatLng(position);
+      var address = await GoogleMapUtils.getAddressFromLatLng(position);
       _selectedAddress = address;
       _selectedCoordinates = '${position.latitude.toStringAsFixed(6)}, ${position.longitude.toStringAsFixed(6)}';
       setState(() {});

@@ -49,13 +49,11 @@ class GoogleMapDataState {
   }
 
 
-  Future drawPolyline() async {
+  Future drawRoute() async {
     print(">>>_ drawPolyline ->");
-    if((_pickupCoordinate == null) || (_destinationCoordinate == null))return;
-    var result = await CommonUtilsManager.getPolylineRoute(_pickupCoordinate!, _destinationCoordinate!);
-    print(">>>_ result -> $result");
+    if((_pickupCoordinate == null) || (_destinationCoordinate == null)) return;
+    var result = await GoogleMapUtils.getPolylineRoute(_pickupCoordinate!, _destinationCoordinate!);
     List<LatLng> polylineCoordinates = [];
-
     for (var latLng in result) {
       polylineCoordinates.add(
         LatLng(latLng.latitude, latLng.longitude));
@@ -69,7 +67,7 @@ class GoogleMapDataState {
       width: 5,
     );
     addPolyLine(polyline);
-    print(">>>_ polylineCoordinates -> $polylineCoordinates");
   }
 
+  void clearRoute() => _polylines.clear();
 }

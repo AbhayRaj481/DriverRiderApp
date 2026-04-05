@@ -45,12 +45,13 @@ class _RiderMapScreenState extends State<RiderMapScreen> {
               // Search Bar
               RiderMapHeader(
                 onPickupChanged: (value) async {
-                  var latLng = await CommonUtilsManager.getLatLngFromAddress(value);
+                  _googleMapDataState.clearRoute();
+                  var latLng = await GoogleMapUtils.getLatLngFromAddress(value);
                   if(latLng != null) {
                     var marker = Marker(
                         markerId: const MarkerId("Pickup"),
                         position: latLng,
-                        icon: BitmapDescriptor.defaultMarkerWithHue(.3)
+                        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue)
                     );
                     _googleMapDataState.addMarker(marker);
                     _googleMapDataState.setPickupCoordinate = latLng;
@@ -59,12 +60,13 @@ class _RiderMapScreenState extends State<RiderMapScreen> {
                   }
                 },
                 onDestinationChanged: (value) async {
-                  var latLng = await CommonUtilsManager.getLatLngFromAddress(value);
+                  _googleMapDataState.clearRoute();
+                  var latLng = await GoogleMapUtils.getLatLngFromAddress(value);
                   if(latLng != null) {
                     var marker = Marker(
                         markerId: const MarkerId("Destination"),
                         position: latLng,
-                        icon: BitmapDescriptor.defaultMarkerWithHue(.3)
+                        icon: BitmapDescriptor.defaultMarker
                     );
                     _googleMapDataState.addMarker(marker);
                     _googleMapDataState.setDestinationCoordinate = latLng;
@@ -103,7 +105,7 @@ class _RiderMapScreenState extends State<RiderMapScreen> {
                 destinationAddress: _destination ?? "N/A",
                 onSearch: () async {
                   if(validate()){
-                    await _googleMapDataState.drawPolyline();
+                    await _googleMapDataState.drawRoute();
                     setState(() {});
                   }
                 },

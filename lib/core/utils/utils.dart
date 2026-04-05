@@ -11,3 +11,4 @@ part 'common_utils_manager.dart';
 part 'extensions.dart';
 part 'app_styles.dart';
 part 'custom_snackbar.dart';
+part 'google_map_utils.dart';
